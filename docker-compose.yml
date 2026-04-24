@@ -1,0 +1,16 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/usr/share/nginx/html
+    restart: always
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+      POSTGRES_DB: mydb
+    restart: always
